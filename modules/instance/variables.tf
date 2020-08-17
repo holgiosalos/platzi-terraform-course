@@ -20,3 +20,7 @@ variable "sg_name" {
 variable "ingress_rules" {
     description = "Security Group ingress rules"
 }
+
+variable "egress_rules" {
+    description = "Security Group egress rules"
+}
