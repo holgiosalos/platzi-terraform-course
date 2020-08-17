@@ -35,4 +35,16 @@ resource "aws_instance" "test-instance" {
   instance_type = var.instance_type
   tags = var.tags
   security_groups = [aws_security_group.ssh_conection.name]
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      user = "ubuntu"
+      private_key = file(var.private_key)
+      host = self.public_ip
+    }
+    inline = [
+      "echo Installing docker image",
+      "docker run -it -d -p 80:80 yolix/hello-platzi:v1"
+    ]
+  }
 }

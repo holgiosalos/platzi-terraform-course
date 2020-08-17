@@ -24,3 +24,7 @@ variable "ingress_rules" {
 variable "egress_rules" {
     description = "Security Group egress rules"
 }
+
+variable "private_key" {
+    description = "Private key used to connet to the EC2 via ssh"
+}
