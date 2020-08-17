@@ -39,8 +39,8 @@ resource "aws_instance" "test-instance" {
     connection {
       type = "ssh"
       user = "ubuntu"
-      private_key = file(var.private_key)
       host = self.public_ip
+      agent = true
     }
     inline = [
       "echo Installing docker image",
